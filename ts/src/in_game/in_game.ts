@@ -57,6 +57,7 @@ class InGame extends AppWindow {
   }
 
   private onInfoUpdates(info) {
+    
     this.logLine(this._infoLog, info, false);
   }
 
@@ -77,6 +78,16 @@ class InGame extends AppWindow {
 
       return false
     });
+    console.log("updating" + JSON.stringify(e));
+    if ('events' in e) {
+      console.log("found events");
+      for (let index in e['events']) {
+        let event = e['events'][index];
+        if ((event['name'] === 'damage') && JSON.parse(event['data'])['damageAmount'] >= 10) { // Deal 100+ damage at once
+          console.log("Clip");
+        }
+      }
+    }
     this.logLine(this._eventsLog, e, shouldHighlight);
   }
 
@@ -112,10 +123,10 @@ class InGame extends AppWindow {
   private logLine(log: HTMLElement, data, highlight) {
     const line = document.createElement('pre');
     line.textContent = JSON.stringify(data);
-
-    if (highlight) {
-      line.className = 'highlight';
-    }
+    const clipNotif = document.createElement('pre');
+    clipNotif.textContent = "CLIP!";
+    clipNotif.className = 'highlight';
+    // const obj = JSON.parse(JSON.stringify(data));
 
     // Check if scroll is near bottom
     const shouldAutoScroll =

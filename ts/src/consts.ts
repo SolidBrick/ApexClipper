@@ -3,9 +3,10 @@ export const kGamesFeatures = new Map<number, string[]>([
   [
     21566,
     [
-      'phase',
       'game_mode',
-      'location'
+      'damage',
+      'kill',
+      'kill_feed'
     ]
   ],
   // Fortnite
