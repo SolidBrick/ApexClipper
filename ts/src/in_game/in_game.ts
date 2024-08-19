@@ -1,5 +1,4 @@
 import { OWGames, OWGamesEvents, OWHotkeys } from "@overwolf/overwolf-api-ts";
-
 import { AppWindow } from "../AppWindow";
 import { kHotkeys, kWindowNames, kGamesFeatures } from "../consts";
 
@@ -96,6 +95,7 @@ class InGame extends AppWindow {
     });
     // console.log("updating" + JSON.stringify(e));
     console.log("update");
+
     if ("events" in e) {
       for (let index in e["events"]) {
         let event = e["events"][index];
@@ -117,7 +117,7 @@ class InGame extends AppWindow {
                 this.clippable = this.consecutiveDMG >= 150 || this.clippable;
                 this.consecutiveDMG = 0;
                 console.log("beamtrigger");
-              }, 3000);
+              }, 2000);
               this.resetClipTimer();
             }
           }
@@ -153,6 +153,10 @@ class InGame extends AppWindow {
     console.log("clip checked");
     if (this.clippable) {
       console.log("CLIP!!!!!!!!");
+      overwolf.windows.restore("notification");
+      setTimeout(() => {
+        overwolf.windows.hide("notification");
+      }, 5000);
     }
     this.knockList = [];
     this.clippable = false;

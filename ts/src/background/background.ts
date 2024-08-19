@@ -1,8 +1,4 @@
-import {
-  OWGames,
-  OWGameListener,
-  OWWindow
-} from '@overwolf/overwolf-api-ts';
+import { OWGames, OWGameListener, OWWindow } from "@overwolf/overwolf-api-ts";
 
 import { kWindowNames, kGameClassIds } from "../consts";
 
@@ -24,17 +20,20 @@ class BackgroundController {
     // Populating the background controller's window dictionary
     this._windows[kWindowNames.desktop] = new OWWindow(kWindowNames.desktop);
     this._windows[kWindowNames.inGame] = new OWWindow(kWindowNames.inGame);
+    this._windows[kWindowNames.notification] = new OWWindow(
+      kWindowNames.notification
+    );
 
     // When a a supported game game is started or is ended, toggle the app's windows
     this._gameListener = new OWGameListener({
       onGameStarted: this.toggleWindows.bind(this),
-      onGameEnded: this.toggleWindows.bind(this)
+      onGameEnded: this.toggleWindows.bind(this),
     });
 
-    overwolf.extensions.onAppLaunchTriggered.addListener(
-      e => this.onAppLaunchTriggered(e)
+    overwolf.extensions.onAppLaunchTriggered.addListener((e) =>
+      this.onAppLaunchTriggered(e)
     );
-  };
+  }
 
   // Implementing the Singleton design pattern
   public static instance(): BackgroundController {
@@ -50,17 +49,18 @@ class BackgroundController {
   public async run() {
     this._gameListener.start();
 
-    const currWindowName = (await this.isSupportedGameRunning())
-      ? kWindowNames.inGame
-      : kWindowNames.desktop;
+    const currWindowName = kWindowNames.notification; // temp change to get this notification window to run
+    // const currWindowName = (await this.isSupportedGameRunning())
+    //   ? kWindowNames.notification
+    //   : kWindowNames.desktop;
 
     this._windows[currWindowName].restore();
   }
 
   private async onAppLaunchTriggered(e: AppLaunchTriggeredEvent) {
-    console.log('onAppLaunchTriggered():', e);
+    console.log("onAppLaunchTriggered():", e);
 
-    if (!e || e.origin.includes('gamelaunchevent')) {
+    if (!e || e.origin.includes("gamelaunchevent")) {
       return;
     }
 

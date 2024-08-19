@@ -13,17 +13,14 @@
     "launcher_icon": "icons/desktop-icon.ico",
     "window_icon": "icons/IconMouseOver.png"
   },
-  "permissions": [
-    "Hotkeys",
-    "GameInfo"
-  ],
+  "permissions": ["Hotkeys", "GameInfo"],
   "data": {
     "start_window": "background",
     "hotkeys": {
       "sample_app_ts_showhide": {
         "title": "Show/Hide In-Game Window",
         "action-type": "toggle",
-        "default": "Ctrl+F"
+        "default": "Ctrl+K"
       }
     },
     "protocol_override_domains": {
@@ -54,7 +51,7 @@
         "override_on_update": true,
         "size": {
           "width": 400,
-          "height": 200 
+          "height": 200
         },
         "min_size": {
           "width": 400,
@@ -81,65 +78,35 @@
           "width": 1212,
           "height": 699
         }
+      },
+      "notification": {
+        "file": "notification.html",
+        "in_game_only": true,
+        "resizable": false,
+        "size": {
+          "width": 300,
+          "height": 100
+        }
       }
     },
     "game_targeting": {
       "type": "dedicated",
       "game_ids": [
-        21566,
-        21216,
-        7764,
-        5426,
-        21634,
-        8032,
-        10844,
-        10906,
-        10826,
-        21404,
-        7212,
-        21640,
-        7314,
-        21626,
-        8954
+        21566, 21216, 7764, 5426, 21634, 8032, 10844, 10906, 10826, 21404, 7212,
+        21640, 7314, 21626, 8954
       ]
     },
     "game_events": [
-      21566,
-      21216,
-      7764,
-      5426,
-      21634,
-      8032,
-      10844,
-      10906,
-      10826,
-      21404,
-      7212,
-      21640,
-      7314,
-      21626,
-      8954
+      21566, 21216, 7764, 5426, 21634, 8032, 10844, 10906, 10826, 21404, 7212,
+      21640, 7314, 21626, 8954
     ],
     "launch_events": [
       {
         "event": "GameLaunch",
         "event_data": {
           "game_ids": [
-            21566,
-            21216,
-            7764,
-            5426,
-            21634,
-            8032,
-            10844,
-            10906,
-            10826,
-            21404,
-            7212,
-            21640,
-            7314,
-            21626,
-            8954
+            21566, 21216, 7764, 5426, 21634, 8032, 10844, 10906, 10826, 21404,
+            7212, 21640, 7314, 21626, 8954
           ]
         },
         "start_minimized": true
