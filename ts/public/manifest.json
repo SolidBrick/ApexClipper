@@ -20,7 +20,7 @@
       "sample_app_ts_showhide": {
         "title": "Show/Hide In-Game Window",
         "action-type": "toggle",
-        "default": "Ctrl+K"
+        "default": "Ctrl+Shift+K"
       }
     },
     "protocol_override_domains": {
@@ -46,20 +46,12 @@
         "file": "desktop.html",
         "desktop_only": true,
         "native_window": true,
-        "resizable": true,
+        "resizable": false,
         "transparent": true,
-        "override_on_update": true,
+        "override_on_update": false,
         "size": {
-          "width": 400,
-          "height": 200
-        },
-        "min_size": {
-          "width": 400,
-          "height": 200
-        },
-        "max_size": {
-          "width": 400,
-          "height": 200
+          "width": 350,
+          "height": 150
         }
       },
       "in_game": {
@@ -69,7 +61,7 @@
         "focus_game_takeover_release_hotkey": "sample_app_ts_showhide",
         "resizable": true,
         "transparent": true,
-        "override_on_update": true,
+        "override_on_update": false,
         "size": {
           "width": 1212,
           "height": 699
@@ -83,31 +75,27 @@
         "file": "notification.html",
         "in_game_only": true,
         "resizable": false,
+        "transparent": true,
+        "override_on_update": false,
+        "clickthrough": true,
+        "is_alt_f4_blocked": true,
+        "keep_window_location": true,
         "size": {
-          "width": 300,
+          "width": 500,
           "height": 100
         }
       }
     },
     "game_targeting": {
       "type": "dedicated",
-      "game_ids": [
-        21566, 21216, 7764, 5426, 21634, 8032, 10844, 10906, 10826, 21404, 7212,
-        21640, 7314, 21626, 8954
-      ]
+      "game_ids": [21566]
     },
-    "game_events": [
-      21566, 21216, 7764, 5426, 21634, 8032, 10844, 10906, 10826, 21404, 7212,
-      21640, 7314, 21626, 8954
-    ],
+    "game_events": [21566],
     "launch_events": [
       {
         "event": "GameLaunch",
         "event_data": {
-          "game_ids": [
-            21566, 21216, 7764, 5426, 21634, 8032, 10844, 10906, 10826, 21404,
-            7212, 21640, 7314, 21626, 8954
-          ]
+          "game_ids": [21566]
         },
         "start_minimized": true
       }

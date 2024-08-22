@@ -1,0 +1,41 @@
+.notificationMain {
+  user-select: none;
+  max-height: 100px;
+  height: 100px;
+  width: 400px;
+  background-color: #000000;
+  vertical-align: middle;
+}
+.pic {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  height: 50px;
+  width: 125px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.text {
+  max-height: 40px;
+  max-width: 225px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+  color: #d5d5d5;
+}
+
+h1 {
+  font-family: "Roboto Mono", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  color: #d5d5d5;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  overflow: hidden;
+}

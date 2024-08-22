@@ -49,10 +49,7 @@ class BackgroundController {
   public async run() {
     this._gameListener.start();
 
-    const currWindowName = kWindowNames.notification; // temp change to get this notification window to run
-    // const currWindowName = (await this.isSupportedGameRunning())
-    //   ? kWindowNames.notification
-    //   : kWindowNames.desktop;
+    const currWindowName = kWindowNames.desktop; // temp change to get this notification window to run
 
     this._windows[currWindowName].restore();
   }
@@ -66,9 +63,16 @@ class BackgroundController {
 
     if (await this.isSupportedGameRunning()) {
       this._windows[kWindowNames.desktop].close();
+      this._windows[kWindowNames.notification].restore();
+      this._windows[kWindowNames.notification].minimize();
+      this._windows[kWindowNames.notification].hide();
+      overwolf.windows.changePosition("notification", 1520, 210);
+      overwolf.windows.changeSize("notification", 400, 100);
       this._windows[kWindowNames.inGame].restore();
+      this._windows[kWindowNames.inGame].minimize();
     } else {
       this._windows[kWindowNames.desktop].restore();
+      this._windows[kWindowNames.notification].close();
       this._windows[kWindowNames.inGame].close();
     }
   }
@@ -80,9 +84,14 @@ class BackgroundController {
 
     if (info.isRunning) {
       this._windows[kWindowNames.desktop].close();
+      this._windows[kWindowNames.notification].restore();
+      this._windows[kWindowNames.notification].minimize();
+      this._windows[kWindowNames.notification].hide();
       this._windows[kWindowNames.inGame].restore();
+      this._windows[kWindowNames.inGame].minimize();
     } else {
       this._windows[kWindowNames.desktop].restore();
+      this._windows[kWindowNames.notification].close();
       this._windows[kWindowNames.inGame].close();
     }
   }

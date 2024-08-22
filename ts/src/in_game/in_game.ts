@@ -38,12 +38,6 @@ class InGame extends AppWindow {
 
     this.setToggleHotkeyBehavior();
     this.setToggleHotkeyText();
-    // function checkClip(clippable: boolean, knockList: object): void {
-    //   if (clippable) {
-    //     console.log("CLIP")
-    //     knockList = []
-    //   }
-    // }
   }
 
   public static instance() {
@@ -95,7 +89,6 @@ class InGame extends AppWindow {
     });
     // console.log("updating" + JSON.stringify(e));
     console.log("update");
-
     if ("events" in e) {
       for (let index in e["events"]) {
         let event = e["events"][index];
@@ -154,8 +147,9 @@ class InGame extends AppWindow {
     if (this.clippable) {
       console.log("CLIP!!!!!!!!");
       overwolf.windows.restore("notification");
+      // overwolf.windows.changePosition("notification", 1620, 210);
       setTimeout(() => {
-        overwolf.windows.hide("notification");
+        overwolf.windows.minimize("notification");
       }, 5000);
     }
     this.knockList = [];
