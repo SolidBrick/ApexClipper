@@ -96,6 +96,8 @@ class BackgroundController {
     }
   }
 
+  private turnOnReplays() {}
+
   private async isSupportedGameRunning(): Promise<boolean> {
     const info = await OWGames.getRunningGameInfo();
 

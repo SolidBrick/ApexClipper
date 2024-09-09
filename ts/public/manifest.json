@@ -2,18 +2,18 @@
   "manifest_version": 1,
   "type": "WebApp",
   "meta": {
-    "name": "Sample App",
-    "author": "Overwolf",
-    "version": "3.0.3",
+    "name": "Apex Clipper",
+    "author": "Solid Brick",
+    "version": "1.0.0",
     "minimum-overwolf-version": "0.160.0",
-    "description": "An example app for developers new to Overwolf",
-    "dock_button_title": "Sample - TS",
-    "icon": "icons/IconMouseOver.png",
-    "icon_gray": "icons/IconMouseNormal.png",
-    "launcher_icon": "icons/desktop-icon.ico",
-    "window_icon": "icons/IconMouseOver.png"
+    "description": "An app that auto-detects when you make a highlight worthy play to give you a notification to clip it!",
+    "dock_button_title": "Apex Clipper",
+    "icon": "icons/Apex-Legends-Emblem.png",
+    "icon_gray": "icons/Apex-Legends-Emblem.png",
+    "launcher_icon": "icons/Apex-Legends-Emblem.png",
+    "window_icon": "icons/256Apex-Legends-Emblem.png"
   },
-  "permissions": ["Hotkeys", "GameInfo"],
+  "permissions": ["Hotkeys", "GameInfo", "VideoCaptureSettings"],
   "data": {
     "start_window": "background",
     "hotkeys": {
